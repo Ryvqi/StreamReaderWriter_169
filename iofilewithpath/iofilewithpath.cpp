@@ -33,5 +33,22 @@ int main() {
 	//menambahkan file dalam mode baca
 	ifstream infile;
 	//menunjuk ke sebuah file
-	infile.open("contohfile.txt");
+	infile.open(NamaFile + ".txt", ios::in);
+
+	cout << endl << ">= Membuka dan Membaca file" << endl;
+	//jika file ada maka
+	if (infile.is_open())
+	{
+		//melakukan perulangan tiap baris
+		while (getline(infile, baris))
+		{
+			//dan tampilkan disini
+			cout << baris << '\n';
+		}
+		//tutup file tersebut setelah selesai
+		infile.close();
+	}
+	//jika tidak ditemukan file maka akan menampilkan ini
+	else cout << "Unable to open file";
+	return 0;
 }
